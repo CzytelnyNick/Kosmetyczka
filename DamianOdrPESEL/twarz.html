@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styl.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styl.css" />
     <title>Usługi kosmetyczne</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="lewy1">
-        <h2>W ofercie</h2>
-        <ul>
-            <li>Zabiegi na twarz
-                <ol>
-                    <li>Piling</li>
-                    <li>Maska</li>
-                    <li>Regulacja brwi</li>
-                </ol>
-            </li>
-            <li>
-                Masaż
-            </li>
-            <li>Diety oczyszczające</li>
-        </ul>
-        <a href="index.html">Do strony głównej</a>
+      <h2>W ofercie</h2>
+      <ul>
+        <li>
+          <a href="twarz.html">Zabiegi na twarz</a>
+          <ol>
+            <li>Piling</li>
+            <li>Maska</li>
+            <li>Regulacja brwi</li>
+          </ol>
+        </li>
+        <li>Masaż</li>
+        <li>Diety oczyszczające</li>
+      </ul>
+      <a href="index.html">Do strony głównej</a>
     </div>
     <div class="prawy1">
-        <h1>Salon Kosmetyczny</h1>
-
+      <h1>Salon Kosmetyczny</h1>
     </div>
     <div class="prawy2">
-        <h2>Sprawdź cenę swojej wizyty</h2>
-        <input type="checkbox" name="" id="">Piling<br>
-        <input type="checkbox" name="" id="">Maska<br>
-        <input type="checkbox" name="" id="">Masaż twarzy<br>
-        <input type="checkbox" name="" id="">Regulacja brwi<br>
-        <input type="submit" value="Sprawdź cenę">
-
+      <h2>Sprawdź cenę swojej wizyty</h2>
+      <input type="checkbox" name="" id="piling" />Piling<br />
+      <input type="checkbox" name="" id="maska" />Maska<br />
+      <input type="checkbox" name="" id="masaz" />Masaż twarzy<br />
+      <input type="checkbox" name="" id="regulacja" />Regulacja brwi<br />
+      <input type="submit" value="Sprawdź cenę" id="sprawdz" />
+      <br />
+      <p id="suma"></p>
     </div>
     <div class="lewy2">
-        <img src="../obraz1.jpg" alt="Kosmetyczka">
+      <img src="../obraz1.jpg" alt="Kosmetyczka" />
     </div>
-    
-    <footer class="stopka">
-        <p>Autor: PESELDamianOdrowąż</p>
-    </footer>
-</body>
 
+    <footer class="stopka">
+      <p>Autor: PESELDamianOdrowąż</p>
+    </footer>
+    <script>
+        let pilling = document.querySelector("#pilling");
+        let maska = document.querySelector("#maska");
+        let masaz = document.querySelector("#masaz");
+        let regulacja = document.querySelector("#regulacja");
+        let p = document.querySelector("#suma");
+        let btn = document.querySelector("#sprawdz");
+        let suma = 0;
+       
+        btn.addEventListener("click", () => {
+            if (piling.checked) {
+            suma += 45;
+            }
+            if (maska.checked ) {
+            suma += 30;
+            }
+            if (masaz.checked) {
+            suma += 20;
+            }
+            if (regulacja.checked) {
+            suma += 5;
+            }
+            if (suma == 0) {
+            p.textContent = "Cena zabiegów 0";
+            } else {
+            p.textContent = `Cena zabiegów ${suma}`;
+            }
+        });
+    </script>
+  </body>
 </html>
